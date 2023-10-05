@@ -1,0 +1,232 @@
+:root {
+    --bg_main: #0a1f44;
+    --text_light: #fff;
+    --text_med: #53627c;
+    --text_dark: #1e2432;
+    --red: #ff1e42;
+    --darkred: #c3112d;
+    --orange: #ff8c00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+}
+
+button,
+input {
+    border: none;
+    background: none;
+    outline: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    /*displays img on a new line and takes the whole width*/
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style-type: none;
+}
+
+body {
+    background: var(--bg_main);
+    color: var(--text_dark);
+    padding: 50px;
+}
+
+/*Section 1*/
+.top-banner {
+    color: var(--text_light);
+}
+
+.heading {
+    font-weight: bold;
+    font-size: 4rem;
+    letter-spacing: 0.02rem;
+    padding: 0 0 30px 0;
+    /*top, right, bottom, left*/
+}
+
+.top-banner form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.top-banner form input {
+    font-size: 2rem;
+    height: 40px;
+    padding: 5px 5px 10px;
+    /*top, right and left, bottom*/
+    border-bottom: 1px solid;
+}
+
+.top-banner form button {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: 15px 20px;
+    /*top and bottom, left and right*/
+    margin-left: 15px;
+    border-radius: 5px;
+    background: var(--red);
+    transition: background 0.3s ease-in-out;
+}
+
+.top-banner form button:hover {
+    background: var(--darkred);
+}
+
+.top-banner form .msg {
+    position: absolute;
+    /*positioned relative to nearest positioned ancestor*/
+    bottom: -40px;
+    left: 0;
+    max-width: 450px;
+    min-height: 40px;
+}
+
+
+@media screen and (max-width: 700px) {
+    .top-banner form {
+        flex-direction: column;
+    }
+
+    .top-banner form input,
+    .top-banner form button {
+        width: 100%;
+    }
+
+    .top-banner form button {
+        margin: 20px 0 0 0;
+        /*top, right, bottom, left*/
+    }
+
+    .top-banner form .msg {
+        position: static;
+        max-width: none;
+        min-height: 0;
+        margin-top: 10px;
+    }
+}
+
+
+/*Section 2*/
+.ajax-section {
+    margin: 50px 0 20px;
+    /*top, right and left, bottom*/
+}
+
+.ajax-section .cities {
+    display: grid;
+    grid-gap: 32px 20px;
+    /*horizontal, vertical*/
+    grid-template-columns: repeat(4, 1fr);
+    /*4 repeats of 1 fraction*/
+}
+
+@media screen and (max-width: 1000px) {
+    .ajax-section .cities {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .ajax-section .cities {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ajax-section .cities {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*Section 2: cards*/
+
+.ajax-section .city {
+    /* display: none; */
+    position: relative;
+    /*positioned to normal flow*/
+    padding: 40px 10%;
+    /*top and bottom, left and right*/
+    border-radius: 20px;
+    background: var(--text_light);
+    color: var(--text_med);
+    box-shadow: 5px 10px var(--orange);
+}
+
+.ajax-section .city::after {
+    content: '';
+    /*replaces elements with the value*/
+    width: 90%;
+    height: 50px;
+    position: absolute;
+    bottom: 12px;
+    left: 5%;
+    z-index: -1;
+    /*disappears due to -1*/
+    opacity: 0.3;
+    border-radius: 20px;
+    background: var(--text_light);
+}
+
+.ajax-section figcaption {
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.ajax-section .city-temp {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: var(--text_dark);
+}
+
+.ajax-section .city-temp sup {
+    font-size: 2.5rem;
+}
+
+
+.ajax-section .city-name sup {
+    padding: 0.2rem 0.6rem;
+    /*top and bottom, left and right*/
+    border-radius: 30px;
+    color: var(--text_light);
+    background: var(--orange);
+    font-size: 0.7rem;
+}
+
+.ajax-section .city-icon {
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+/* Footer */
+.page-footer {
+    text-align: right;
+    font-size: 1rem;
+    color: var(--text_light);
+    margin-top: 40px;
+}
+
+.page-footer a {
+    color: var(--text_light);
+    text-decoration: none;
+}
+
+.page-footer span {
+    color: var(--orange)
+}
