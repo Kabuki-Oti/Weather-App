@@ -1,8 +1,8 @@
 # Simple Weather App
 
-![Weather App Screenshot](./assests/preview.png)
-
 A simple weather app that allows users to search for weather information by city name and view the current weather conditions.
+
+![Weather App Screenshot](./assests/preview.png)
 
 ## Table of Contents
 
