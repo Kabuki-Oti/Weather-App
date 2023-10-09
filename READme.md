@@ -14,7 +14,7 @@ A weather app that allows users to search for weather information by city name a
 
 ## Introduction
 
-This is a straightforward weather app that enables users to search for weather information for a specific city. It utilises the OpenWeatherMap API to fetch weather data and displays it in an organised and user-friendly manner.
+This is a weather app that enables users to search for weather information for a specific city. It utilises the OpenWeatherMap API to fetch weather data and displays it in an organised and user-friendly manner.
 
 ## Features
 
