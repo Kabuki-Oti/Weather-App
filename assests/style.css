@@ -1,10 +1,10 @@
 :root {
-    --bg_main: #0a1f44;
-    --text_light: #fff;
-    --text_med: #53627c;
-    --text_dark: #1e2432;
-    --red: #ff1e42;
-    --darkred: #c3112d;
+    --bg_main: #3D550C;
+    --text_light: #ECF87F;
+    --text_med: #81B622;
+    --text_dark: #59981A;
+    --pink: #FB6090;
+    --darkpink: #FB4570;
     --orange: #ff8c00;
 }
 
@@ -78,12 +78,12 @@ body {
     /*top and bottom, left and right*/
     margin-left: 15px;
     border-radius: 5px;
-    background: var(--red);
+    background: var(--pink);
     transition: background 0.3s ease-in-out;
 }
 
 .top-banner form button:hover {
-    background: var(--darkred);
+    background: var(--darkpink);
 }
 
 .top-banner form .msg {
@@ -155,7 +155,7 @@ body {
 /*Section 2: cards*/
 
 .ajax-section .city {
-    /* display: none; */
+    display: none;
     position: relative;
     /*positioned to normal flow*/
     padding: 40px 10%;
@@ -228,5 +228,5 @@ body {
 }
 
 .page-footer span {
-    color: var(--orange)
+    color: var(--darkpink)
 }

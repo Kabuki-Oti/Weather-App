@@ -27,15 +27,15 @@ async function getData() {
         if (!response.ok) {
             throw new Error("HTTP-Error: " + response.status);
         }
-        const data = await response.json()//use await infront of all async functions
+        const data = await response.json()
         console.log(data)
 
-        //remove 'hidden' class to display the form
-        form.style.display = "flex";
+if (data && data.name) {
 
-        //create a new city container
+        //create and display a new city container
         const cityContainer = document.createElement("li");
         cityContainer.classList.add("city");
+        cityContainer.style.display = "block";
 
         //format with html
         const { main, name, sys, weather } = data;
@@ -57,11 +57,12 @@ async function getData() {
         //append the new city container to the list
         list.appendChild(cityContainer);
 
+    }
+
         //resetting form and input
         msg.textContent = "";
         form.reset();
         input.focus();
-
 
     } catch (error) {
         msg.textContent = "Please search for a valid city";
@@ -69,19 +70,14 @@ async function getData() {
 };
 
 
-
-
-
-
-
-
-//check if city is found
 const listItems = list.querySelectorAll(".ajax-section .city");
 const listItemsArray = Array.from(listItems);
 
+
 if (listItemsArray.length > 0) {
-    //check for the <city,country> format
+    //check for the "city,country" format
     const filteredArray = listItemsArray.filter(el => {
+        
         let content = "";
 
         if (inputVal.includes(",")) {
@@ -100,9 +96,11 @@ if (listItemsArray.length > 0) {
 
     //Check for another city
     if (filteredArray.length > 0) {
-        msg.textContent = `You already know the weather for ${filteredArray[0].querySelector(".city-name span").textContent}...otherwise be more specific by providing the country code as well 😉`;
+        msg.textContent = `You already know the weather for ${filteredArray[0].querySelector(".city-name span").textContent}. Search for another location in the "city,country" format`;
         form.reset();
         input.focus();
     }
 }
+
+
 
