@@ -82,4 +82,4 @@ This is a weather app that enables users to search for weather information for a
 
 ---
 
-This Weather App was created by [Kabuki Oti](https://github.com/Kabuki-Oti). Enjoy checking the weather!
+Enjoy checking the weather!
