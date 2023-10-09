@@ -1,6 +1,6 @@
-# Simple Weather App
+# Weather App
 
-A simple weather app that allows users to search for weather information by city name and view the current weather conditions.
+A weather app that allows users to search for weather information by city name and view the current weather conditions.
 
 ![Weather App Screenshot](./assests/preview.png)
 
@@ -33,28 +33,44 @@ This is a straightforward weather app that enables users to search for weather i
 
 ## Installation
 
-1. Clone the repository to your local machine:
+1.  Clone the repository to your local machine:
 
-   ```
-   git clone https://github.com/yourusername/weather-app.git
-   ```
+    ```
+    git clone https://github.com/yourusername/weather-app.git
+    ```
 
-2. Open the project folder in your code editor.
+2.  Open the project folder in your code editor.
 
-3. Obtain an API key from [OpenWeatherMap](https://openweathermap.org/) by signing up for a free account.
+3.  Obtain an API key from [OpenWeatherMap](https://openweathermap.org/) by signing up for a free account.
 
-4. Create a `config.js` file in the project directory and add your API key:
+4.  Create a `config.js` file in the project directory and add your API key:
 
-   ```javascript
-   // config.js
-   export const apiKey = 'YOUR_API_KEY';
-   ```
+    ```javascript
+    // config.js
+    export const apiKey = "YOUR_API_KEY";
+    ```
 
-5. Open the `index.html` file in your web browser or deploy it to a web server.
+    or
+
+    Replace
+
+    ```javascript
+    //index.js
+    import { apiKey } from "./config.js
+    ```
+
+    with
+
+    ```javascript
+    //index.js
+    const apiKey = "YOUR API KEY"
+    ```
+
+5.  Open the `index.html` file in your web browser or deploy it to a web server.
 
 ## Usage
 
-1. Enter the name of a city in the search input field on the top banner.
+1. Search by entering a city name (e.g breda) or comma-separated city name along with the country code (e.g breda,nl)
 
 2. Click the "SUBMIT" button or press Enter.
 
@@ -63,8 +79,6 @@ This is a straightforward weather app that enables users to search for weather i
 4. If the city is not found or there is an issue with the API request, an error message will be displayed.
 
 5. You can search for multiple cities, and their weather information will be added to the list in the "ajax-section."
-
-6. If you search for a city you have already searched for, a message will inform you that you already know the weather for that city.
 
 ---
 

@@ -5,6 +5,8 @@ const input = document.querySelector(".top-banner input");
 const msg = document.querySelector("form .msg");
 const list = document.querySelector(".ajax-section .cities");
 const li = document.querySelector("li");
+const listItems = list.querySelectorAll(".ajax-section .city");
+const listItemsArray = Array.from(listItems);
 
 let url;
 
@@ -30,19 +32,19 @@ async function getData() {
         const data = await response.json()
         console.log(data)
 
-if (data && data.name) {
+        if (data && data.name) {
 
-        //create and display a new city container
-        const cityContainer = document.createElement("li");
-        cityContainer.classList.add("city");
-        cityContainer.style.display = "block";
+            //create and display a new city container
+            const cityContainer = document.createElement("li");
+            cityContainer.classList.add("city");
+            cityContainer.style.display = "block";
 
-        //format with html
-        const { main, name, sys, weather } = data;
-        const icon = `https://openweathermap.org/img/wn/${weather[0]["icon"]}@2x.png`;
+            //format with html
+            const { main, name, sys, weather } = data;
+            const icon = `https://openweathermap.org/img/wn/${weather[0]["icon"]}@2x.png`;
 
-        cityContainer.innerHTML =
-            `
+            cityContainer.innerHTML =
+                `
         <h2 class="city-name" date-name="${name},${sys.country}">
         <span>${name}</span>
         <sup>${sys.country}</sup>
@@ -54,10 +56,10 @@ if (data && data.name) {
         </figure>
         `
 
-        //append the new city container to the list
-        list.appendChild(cityContainer);
+            //append the new city container to the list
+            list.appendChild(cityContainer);
 
-    }
+        }
 
         //resetting form and input
         msg.textContent = "";
@@ -68,39 +70,5 @@ if (data && data.name) {
         msg.textContent = "Please search for a valid city";
     };
 };
-
-
-const listItems = list.querySelectorAll(".ajax-section .city");
-const listItemsArray = Array.from(listItems);
-
-
-if (listItemsArray.length > 0) {
-    //check for the "city,country" format
-    const filteredArray = listItemsArray.filter(el => {
-        
-        let content = "";
-
-        if (inputVal.includes(",")) {
-            if (inputVal.split(",")[1].length > 2) {
-                inputVal = inputVal.split(",")[0];
-                content = el.querySelector(".city-name span").textContent.toLowerCase();
-            } else {
-                content = el.querySelector(".city-name").dataset.name.toLowerCase();
-            }
-        } else {
-            content = el.querySelector(".city-name span").textContent.toLowerCase();
-        }
-        return content == inputVal.toLowerCase();
-
-    });
-
-    //Check for another city
-    if (filteredArray.length > 0) {
-        msg.textContent = `You already know the weather for ${filteredArray[0].querySelector(".city-name span").textContent}. Search for another location in the "city,country" format`;
-        form.reset();
-        input.focus();
-    }
-}
-
 
 
